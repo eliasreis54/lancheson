@@ -1,5 +1,6 @@
 /* TODO:
-* uncoment cors variables.
+* uncomment cors variables.
+* implemente memory database.
 */
 
 import express from 'express';
