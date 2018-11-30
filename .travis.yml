@@ -11,3 +11,7 @@ install:
 
 script:
   - npm test
+
+after_success:
+  - 'docker build -t ${TRAVIS_REPO_SLUG} .'
+  - travis/publish.sh
