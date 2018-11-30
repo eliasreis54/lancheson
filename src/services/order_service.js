@@ -5,7 +5,6 @@ const promotionReduce = (count, factor) => {
     if (count >= (min * (factor + 1))) {
       return promotionReduce(count, factor + 1);
     }
-    return (count - factor);
   }
   return (count - factor);
 };
