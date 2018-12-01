@@ -1,0 +1,45 @@
+# Data-manager
+
+## Import [/import]
+
+### Create a new product [POST /products]
+This request create a new product in database
++ Request (application/json; charset=utf-8)
+  + Body
+
+            {
+              "name" : "Cheese",
+              "price": 1.00,
+              "Ingredients": []
+            }
+
++ Response 200 (application/json; charset=utf-8)
+
+  + Body
+            {
+                "Ingredients": [],
+                "_id": "5c02d63e0b3e6b1d6182ffeb",
+                "name": "Cheese",
+                "price": 1,
+                "__v": 0
+            }
+
+
+## Get all products [GET /export]
+
+### Get all data to be exported [GET /products]
+This request get all products;
++ Request (application/json; charset=utf-8)
++ Response 200 (application/json; charset=utf-8)
+
+  + Body
+
+            [
+              {
+                "Ingredients": [],
+                "_id": "5c02d63e0b3e6b1d6182ffeb",
+                "name": "Cheese",
+                "price": 1,
+                "__v": 0
+              }
+            ]
