@@ -4,16 +4,27 @@ import productService from '../services/products_services';
 const router = Router();
 
 router.get('/products', (req, res) => {
-  const data = productService.returnData();
-  res.json(data);
+  productService.returnData()
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
 });
 
+
+router.post('/products', (req, res) => {
+  productService.saveData(req.body)
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
+});
 
 /*
-router.post('/products', (req, res) => {
-
-});
-
 router.put('/products/:id', (req, res) => {
 });
 

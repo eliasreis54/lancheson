@@ -1,26 +1,35 @@
-import Ingredients from '../moks/Ingredients';
-import Menu from '../moks/menu';
+import Ingredients from '../database/models/Ingredients';
 
-const returnData = () => {
-  const ret = [];
-  Menu.forEach((snack) => {
-    const snackTemp = snack;
-    snackTemp.price = 0;
-    snackTemp.itens = [];
-    snackTemp.Ingredients.forEach((item) => {
-      snackTemp.price += item.price;
-      snackTemp.itens.push(item.name);
+const returnData = () => new Promise(async (resolve, reject) => {
+  try {
+    const ingredients = await Ingredients.find();
+    const ret = [];
+    ingredients.forEach((snack) => {
+      const snackTemp = snack;
+      if (snackTemp.Ingredients.length > 0) {
+        snackTemp.price = 0;
+        snackTemp.itens = [];
+        snackTemp.Ingredients.forEach((item) => {
+          snackTemp.price += item.price;
+          snackTemp.itens.push(item.name);
+        });
+      }
+      ret.push(snackTemp);
     });
-    delete snackTemp.Ingredients;
-    ret.push(snack);
-  });
+    resolve(ret);
+  } catch (e) {
+    reject(e);
+  }
+});
 
+const saveData = data => new Promise(async (resolve, reject) => {
+  try {
+    const ingredients = new Ingredients(data);
+    const ret = await ingredients.save();
+    resolve(ret);
+  } catch (e) {
+    reject(e);
+  }
+});
 
-  Ingredients.forEach((item) => {
-    ret.push(item);
-  });
-
-  return ret;
-};
-
-export default { returnData };
+export default { returnData, saveData };
