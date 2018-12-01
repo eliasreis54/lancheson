@@ -21,10 +21,10 @@ test('Test the function returnData', () => {
   Ingredients.find = jest.fn().mockRejectedValue(new Error())
   productService.returnData()
     .catch((err) => {
-      expect(err).toMatchObject({});
+      expect(err).toBeInstanceOf(Error);
     });
 
-  Ingredients.save = jest.fn().mockResolvedValue([{ name: "Picles", price: 0.5, Ingredients: [] }])
+  Ingredients.save = jest.fn().mockResolvedValue({ name: "Picles", price: 0.5, Ingredients: [] })
   productService.saveData({ name: "Picles", price: 0.5, Ingredients: [] })
     .then((data) => {
       expect(data).toMatchObject(
@@ -35,6 +35,33 @@ test('Test the function returnData', () => {
   Ingredients.save = jest.fn().mockRejectedValue(new Error())
   productService.saveData()
     .catch((err) => {
-      expect(err).toMatchObject({});
+      expect(err).toBeInstanceOf(Error);
+    });
+
+  Ingredients.findOneAndUpdate = jest.fn().mockResolvedValue();
+  Ingredients.findById = jest.fn().mockResolvedValue({ _id: "5c02d34a990c55166a1800b9", name: "Picles", price: 0.5, Ingredients: [] });
+  productService.updateData("5c02d34a990c55166a1800b9", { name: "Picles", price: 0.5, Ingredients: [] })
+    .then((data) => {
+      expect(data).toMatchObject(
+        { _id: "5c02d34a990c55166a1800b9", name: "Picles", price: 0.5, Ingredients: [] }
+      );
+    });
+
+  Ingredients.findOneAndUpdate = jest.fn().mockRejectedValue(new Error())
+  productService.updateData()
+    .catch((err) => {
+      expect(err).toBeInstanceOf(Error);
+    });
+
+  Ingredients.findOneAndDelete = jest.fn().mockResolvedValue();
+  productService.deleteData("5c02d34a990c55166a1800b9")
+    .then((data) => {
+      expect(data).toBe(null);
+    });
+
+  Ingredients.findOneAndDelete = jest.fn().mockRejectedValue(new Error())
+  productService.deleteData()
+    .catch((err) => {
+      expect(err).toBeInstanceOf(Error);
     });
 });

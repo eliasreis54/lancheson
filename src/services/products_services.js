@@ -32,4 +32,25 @@ const saveData = data => new Promise(async (resolve, reject) => {
   }
 });
 
-export default { returnData, saveData };
+const updateData = (id, data) => new Promise(async (resolve, reject) => {
+  try {
+    await Ingredients.findOneAndUpdate({ _id: id }, data);
+    const updated = await Ingredients.findById(id);
+    resolve(updated);
+  } catch (e) {
+    reject(e);
+  }
+});
+
+const deleteData = id => new Promise(async (resolve, reject) => {
+  try {
+    await Ingredients.findOneAndDelete({ _id: id });
+    resolve(null);
+  } catch (e) {
+    reject(e);
+  }
+});
+
+export default {
+  returnData, saveData, updateData, deleteData,
+};
