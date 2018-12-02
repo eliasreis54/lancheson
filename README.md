@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/eliasreis54/lancheson.svg?branch=master)](https://travis-ci.org/eliasreis54/lancheson)
+
 # LanchesOn
 
 This project is a simple implementations of API in node.js with mongoDB.
