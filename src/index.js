@@ -9,7 +9,8 @@ import Menu from './moks/menu';
 import IngredientsModel from './database/models/Ingredients';
 import OrderModel from './database/models/order';
 
-mongoose.connect('mongodb://localhost:27017/');
+const mongoURL = process.env.MONGO_URL || 'localhost';
+mongoose.connect(`mongodb://${mongoURL}:27017/`);
 
 IngredientsModel.collection.deleteMany();
 OrderModel.collection.deleteMany();

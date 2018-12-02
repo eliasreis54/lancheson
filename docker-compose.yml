@@ -8,8 +8,10 @@ services:
       - "27017:27017"
 
   app:
-    image: eliasreis54/lancheson:latest
+    image: eliasreis54/lancheson:deploy
     ports:
       - 3000:3000
     depends_on:
       - db
+    environment:
+      - MONGO_URL=db
