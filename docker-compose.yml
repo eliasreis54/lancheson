@@ -4,11 +4,13 @@ volumes:
 services:
   db:
     image: "mongo:3.2"
+    restart: always
     ports:
       - "27017:27017"
 
   app:
-    image: eliasreis54/lancheson:deploy
+    image: eliasreis54/lancheson:latest
+    restart: always
     ports:
       - 3000:3000
     depends_on:

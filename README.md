@@ -30,7 +30,11 @@ npm start
 
 With that, all the projet already is up.
 
-To use the API call's, you can see the api documentation [here](https://github.com/eliasreis54/lancheson)
+To use the API call's, you can see the api documentation:
+
+[Order requests](https://documenter.getpostman.com/view/3534154/RzfdrBJ9)
+
+[Product requests](https://documenter.getpostman.com/view/3534154/RzfdrBDm)
 
 
 
@@ -52,7 +56,12 @@ docker-compose up -d
 
 With that, all the projet already is up.
 
-To use the API call's, you can see the api documentation [here](https://github.com/eliasreis54/lancheson)
+To use the API call's, you can see the api documentation:
+
+[Order requests](https://documenter.getpostman.com/view/3534154/RzfdrBJ9)
+
+[Product requests](https://documenter.getpostman.com/view/3534154/RzfdrBDm)
+
 
 ## Tests
 
