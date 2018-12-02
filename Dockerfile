@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:10.14.0-alpine
 
 WORKDIR /opt/datamanager
 

@@ -1,0 +1,15 @@
+version: '3.3'
+volumes:
+  data:
+services:
+  db:
+    image: "mongo:3.2"
+    ports:
+      - "27017:27017"
+
+  app:
+    image: eliasreis54/lancheson:latest
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
