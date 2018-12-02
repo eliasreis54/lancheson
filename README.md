@@ -1,15 +1,15 @@
 # LanchesOn
 
 This project is a simple implementations of API in node.js with mongoDB.
-The project structure is simple, i have a folder **src** and all the files of project are in that folder.
-The folder **router**, i separed the routers to be more organized. We have too the **service** folder, she contains all business rule.
+The project structure is simple, I have a folder **src** and all the files of project are in that folder.
+The folder **router**, I separed the routers to be more organized. We have also the **service** folder, It contains all business rule.
 In the **database** folder, we have the models used in database storage.
-And the beginning of everything we can find in **index.js**.
+And at the beginning of everything we can find in **index.js**.
 
 ## Getting Started
 
 To get start with the project, you have two alternatives:
-* 1 - Download this project and run your machine. (Presume you have node.js and mongoDB installed);
+* 1 - Download it and run on your machine. (Presume you have node.js and mongoDB installed);
 * 2 - Run this project with docker-compose. (Presume you have docker-compose instaled);
 
 ### 1 - Running on your machine
