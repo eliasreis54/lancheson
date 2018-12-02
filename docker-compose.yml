@@ -1,0 +1,19 @@
+version: '3.3'
+volumes:
+  data:
+services:
+  db:
+    image: "mongo:3.2"
+    restart: always
+    ports:
+      - "27017:27017"
+
+  app:
+    image: eliasreis54/lancheson:latest
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    environment:
+      - MONGO_URL=db
