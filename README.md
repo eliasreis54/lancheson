@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/eliasreis54/lancheson.svg?branch=master)](https://travis-ci.org/eliasreis54/lancheson) [![codecov](https://codecov.io/gh/eliasreis54/lancheson/branch/master/graph/badge.svg)](https://codecov.io/gh/eliasreis54/lancheson) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # LanchesOn
 
 This project is a simple implementations of API in node.js with mongoDB.
